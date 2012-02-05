@@ -15,4 +15,6 @@ Video is choppy at times
 Known bugs:
 Wallet crashes every time you connect to a network
 No dictionaries in LatinIME
-No Camera.apk in default ROM, camera libs are not as new.
+
+TODO:
+Remove facelock, wallet etc. from gapps (need to discuss with AOKP people)

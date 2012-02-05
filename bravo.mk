@@ -116,6 +116,9 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libstagefrighthw
 
+# Camera
+PRODUCT_PACKAGES += Camera
+
 PRODUCT_LOCALES := en
 
 # Passion uses high-density artwork where available
