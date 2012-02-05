@@ -1,0 +1,4 @@
+This needs the two following commits:
+https://github.com/Evervolv/android_hardware_qcom_display/commit/bd4bfd035d43882d1df45ed531cad9acc65c552e
+and
+https://github.com/Evervolv/android_frameworks_base/commit/a2711511f702059d012e22f1c0589fcd8aa5ee98
