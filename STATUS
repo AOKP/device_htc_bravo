@@ -1,14 +1,18 @@
 List of working stuff taken from Sandvold's thread.
 Not working:
-USB
-Camera (no apk)
+USB (at all)
 
 Not tested:
-SMS
 3G (+ usage tracker)
 GPS
+Hotspot/tethering (seems to work, but my laptop doesn't see it)
 Paid apps
 
 Half working:
 HWA is still a hack
 Video is choppy at times
+
+Known bugs:
+Wallet crashes every time you connect to a network
+No dictionaries in LatinIME
+No Camera.apk in default ROM, camera libs are not as new.
