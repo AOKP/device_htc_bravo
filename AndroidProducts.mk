@@ -18,5 +18,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/generic_bravo.mk \
-    $(LOCAL_DIR)/full_bravo.mk
+    $(LOCAL_DIR)/aokp_bravo.mk
