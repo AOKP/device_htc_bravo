@@ -1,11 +1,13 @@
-List of working stuff taken from Sandvold's thread.
 Not working:
 USB (at all)
+Panorama mode in camera (will probably wait until it's useable)
 
 Not tested:
 3G (+ usage tracker)
 GPS
 Hotspot/tethering (seems to work, but my laptop doesn't see it)
+
+Can't test:
 Paid apps
 
 Half working:
@@ -13,8 +15,5 @@ HWA is still a hack
 Video is choppy at times
 
 Known bugs:
-Wallet crashes every time you connect to a network
 No dictionaries in LatinIME
-
-TODO:
 Remove facelock, wallet etc. from gapps (need to discuss with AOKP people)
