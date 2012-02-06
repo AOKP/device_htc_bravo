@@ -119,6 +119,8 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += Camera
 
+PRODUCT_PACKAGES += Superuser
+
 PRODUCT_LOCALES := en
 
 # Passion uses high-density artwork where available
