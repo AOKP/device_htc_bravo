@@ -119,7 +119,11 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += Camera
 
+# Superuser
 PRODUCT_PACKAGES += Superuser
+
+# Trebuchet launcher
+PRODUCT_PACKAGES += Trebuchet
 
 PRODUCT_LOCALES := en
 
