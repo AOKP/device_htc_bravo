@@ -1,5 +1,1 @@
-This needs the following commits to hardware_qcom_display:
-https://github.com/Evervolv/android_hardware_qcom_display/commit/bd4bfd035d43882d1df45ed531cad9acc65c552e
-https://github.com/Evervolv/android_hardware_qcom_display/commit/a9a3796c03210927438d95116fcef4c3cc8aeabf
-and to frameworks_base:
-https://github.com/Evervolv/android_frameworks_base/commit/a2711511f702059d012e22f1c0589fcd8aa5ee98
+This repo needs my forks of hardware_qcom_display and hardware_qcom_camerahal and also vendor_htc and device_htc_common from Evervolv.
