@@ -156,8 +156,5 @@ PRODUCT_COPY_FILES += \
     device/htc/bravo/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/bravo/prebuilt/kernel:kernel
 
-# stuff common to all HTC phones
-$(call inherit-product, device/htc/common/common.mk)
-
 # Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/bravo/bravo-vendor.mk)
