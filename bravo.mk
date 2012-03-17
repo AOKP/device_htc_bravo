@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Camera
-PRODUCT_PACKAGES += CameraLegacy
+PRODUCT_PACKAGES += Camera
 
 # Superuser
 PRODUCT_PACKAGES += Superuser
