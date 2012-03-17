@@ -38,7 +38,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsupa.category=5 \
     ro.ril.hsxpa=2 \
     ro.ril.def.agps.mode=2 \
-    wifi.interface=eth0 \
+    wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2 \
     ro.media.dec.jpeg.memcap=20000000 \
@@ -90,7 +90,7 @@ PRODUCT_COPY_FILES += \
     device/htc/bravo/media_profiles.xml:system/etc/media_profiles.xml
 
 # Sensors
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
     gps.bravo \
     lights.bravo \
     sensors.bravo \
@@ -120,7 +120,7 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Camera
-PRODUCT_PACKAGES += Camera
+PRODUCT_PACKAGES += CameraLegacy
 
 # Superuser
 PRODUCT_PACKAGES += Superuser
