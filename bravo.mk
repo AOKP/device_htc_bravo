@@ -21,7 +21,8 @@
 
 # First, the most specific values, i.e. the aspects that are specific to GSM
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay
+DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay \
+						   vendor/aokp/overlay/bravo
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
@@ -82,7 +83,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
+    vendor/aokp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # media config xml file
@@ -129,7 +130,7 @@ PRODUCT_PACKAGES += Superuser
 PRODUCT_PACKAGES += Trebuchet
 
 # LWPs
-PRODUCT_PACKAGES += LiveWallpapers LiveWallpapersPicker VisualizationWallpapers
+PRODUCT_PACKAGES += LiveWallpapers LiveWallpapersPicker VisualizationWallpapers PhaseBeam UnicornPorn
 
 PRODUCT_LOCALES := en
 
