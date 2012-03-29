@@ -160,3 +160,7 @@ PRODUCT_COPY_FILES += \
 
 # Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/bravo/bravo-vendor.mk)
+
+# Locales!
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
