@@ -22,7 +22,8 @@
 # First, the most specific values, i.e. the aspects that are specific to GSM
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay \
-						   vendor/aokp/overlay/bravo
+						   vendor/aokp/overlay/bravo \
+						   vendor/aokp/overlay/common
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
