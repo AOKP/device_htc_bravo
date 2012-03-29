@@ -22,8 +22,7 @@
 # First, the most specific values, i.e. the aspects that are specific to GSM
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay \
-						   vendor/aokp/overlay/bravo \
-						   vendor/aokp/overlay/common
+						   vendor/aokp/overlay/bravo
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
@@ -165,3 +164,5 @@ $(call inherit-product-if-exists, vendor/htc/bravo/bravo-vendor.mk)
 # Locales!
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# AOKP common
+$(call inherit-product, vendor/aokp/configs/common.mk) 
