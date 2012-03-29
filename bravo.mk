@@ -84,7 +84,8 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
     vendor/aokp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
-	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip \
+	vendor/aokp/prebuilt/system/app/LatinImeDictionaryPack.apk:system/app/LatinImeDictionaryPack.apk
 
 # media config xml file
 PRODUCT_COPY_FILES += \
