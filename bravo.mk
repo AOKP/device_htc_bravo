@@ -83,9 +83,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-    vendor/aokp/prebuilt/common/etc/apns-conf.xml:system/etc/apns-conf.xml \
-	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip \
-	vendor/aokp/prebuilt/common/app/LatinImeDictionaryPack.apk:system/app/LatinImeDictionaryPack.apk
+	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # media config xml file
 PRODUCT_COPY_FILES += \
@@ -166,3 +164,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # AOKP common
 $(call inherit-product, vendor/aokp/configs/common.mk) 
+$(call inherit-product, vendor/aokp/configs/gsm.mk)
