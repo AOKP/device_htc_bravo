@@ -57,14 +57,14 @@ PRODUCT_PROPERTY_OVERRIDES += ro.ril.enable.prl.recognition=1
 PRODUCT_PROPERTY_OVERRIDES += ro.vold.umsdirtyratio=20
 
 # Disable HWAccel for now
-ADDITIONAL_BUILD_PROPERTIES += ro.config.disable_hw_accel=true
+PRODUCT_PROPERTY_OVERRIDES += ro.config.disable_hw_accel=true
 
 # Ril workaround
-ADDITIONAL_BUILD_PROPERTIES += ro.telephony.ril.v3=signalstrength
+PRODUCT_PROPERTY_OVERRIDES += ro.telephony.ril.v3=signalstrength
     #skipbrokendatacall,facilitylock,datacall,icccardstatus
 
 # Set usb type
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
 
