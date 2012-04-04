@@ -70,3 +70,6 @@ keyboard.builtIn = 0
 
 device.internal = 1
 
+# Might help pinch-to-zoom
+touch.filterTouchEvents = 1
+
