@@ -1,8 +1,14 @@
 No full HWA yet.
 
+HWA related problems:
+Gallery blackscreens
+Adobe Flash blackscreens
+Video playback is slow
+
 Broken:
 Video recording
 Panorama mode
 
 Didn't test:
 USB tethering
+Pinch-to-zoom is reported to be broken in some apps. Might be an ICS thing, not sure if it's optimized for point size sensors.
