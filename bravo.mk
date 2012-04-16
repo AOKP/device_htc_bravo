@@ -103,10 +103,10 @@ PRODUCT_PACKAGES += \
     libaudioutils
 # GPU
 PRODUCT_PACKAGES += \
-    copybit.qsd8k \
     gralloc.qsd8k \
     hwcomposer.default \
-    hwcomposer.qsd8k
+    hwcomposer.qsd8k \
+	copybit.qsd8k
 #    libgenlock \
 #    libmemalloc \
 #    liboverlay \
