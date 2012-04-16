@@ -21,7 +21,8 @@
 
 # First, the most specific values, i.e. the aspects that are specific to GSM
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay
+DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay \
+						   vendor/aokp/overlay/bravo
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
@@ -38,7 +39,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsupa.category=5 \
     ro.ril.hsxpa=2 \
     ro.ril.def.agps.mode=2 \
-    wifi.interface=wlan0 \
+    wifi.interface=eth0 \
     wifi.supplicant_scan_interval=45 \
     mobiledata.interfaces=rmnet0,rmnet1,rmnet2 \
     ro.media.dec.jpeg.memcap=20000000 \
@@ -57,14 +58,14 @@ PRODUCT_PROPERTY_OVERRIDES += ro.ril.enable.prl.recognition=1
 PRODUCT_PROPERTY_OVERRIDES += ro.vold.umsdirtyratio=20
 
 # Disable HWAccel for now
-ADDITIONAL_BUILD_PROPERTIES += ro.config.disable_hw_accel=true
+PRODUCT_PROPERTY_OVERRIDES += ro.config.disable_hw_accel=true
 
 # Ril workaround
-ADDITIONAL_BUILD_PROPERTIES += ro.telephony.ril.v3=signalstrength
+PRODUCT_PROPERTY_OVERRIDES += ro.telephony.ril.v3=signalstrength
     #skipbrokendatacall,facilitylock,datacall,icccardstatus
 
 # Set usb type
-ADDITIONAL_DEFAULT_PROPERTIES += \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
 
@@ -82,7 +83,6 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
 	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # media config xml file
@@ -129,7 +129,7 @@ PRODUCT_PACKAGES += Superuser
 PRODUCT_PACKAGES += Trebuchet
 
 # LWPs
-PRODUCT_PACKAGES += LiveWallpapers LiveWallpapersPicker VisualizationWallpapers
+PRODUCT_PACKAGES += LiveWallpapers LiveWallpapersPicker VisualizationWallpapers PhaseBeam UnicornPorn
 
 PRODUCT_LOCALES := en
 
@@ -158,3 +158,10 @@ PRODUCT_COPY_FILES += \
 
 # Also get non-open-source GSM-specific aspects if available
 $(call inherit-product-if-exists, vendor/htc/bravo/bravo-vendor.mk)
+
+# Locales!
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+# AOKP common
+$(call inherit-product, vendor/aokp/configs/common.mk) 
+$(call inherit-product, vendor/aokp/configs/gsm.mk)
