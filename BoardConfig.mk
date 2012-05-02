@@ -34,6 +34,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := qsd8k
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
+# CPU optimizations
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -57,9 +58,11 @@ WIFI_DRIVER_MODULE_NAME     := "bcm4329"
 
 BOARD_USES_GENERIC_AUDIO := false
 
+# Kernel
 BOARD_KERNEL_CMDLINE := no_console_suspend=1 msmsdcc_sdioirq=1 wire.search_count=5
 BOARD_KERNEL_BASE := 0x20000000
 BOARD_KERNEL_NEW_PPPOX := true
+TARGET_PREBUILT_KERNEL := device/htc/bravo/prebuilt/kernel
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
@@ -69,10 +72,9 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 3200
 BOARD_VENDOR_USE_AKMD := akm8973
 
 # Hardware rendering
-BOARD_EGL_CFG := device/htc/bravo/egl.cfg
+BOARD_EGL_CFG := device/htc/bravo/prebuilt/egl.cfg
 USE_OPENGL_RENDERER := false
 COMMON_GLOBAL_CFLAGS += -DMISSING_EGL_EXTERNAL_IMAGE -DMISSING_EGL_PIXEL_FORMAT_YV12 -DMISSING_GRALLOC_BUFFERS -DUNABLE_TO_DEQUEUE
-COMMON_GLOBAL_CFLAGS += -DCOPYBIT_QSD8K
 
 # qsd dont have overlay support in kernel
 TARGET_USE_OVERLAY := false

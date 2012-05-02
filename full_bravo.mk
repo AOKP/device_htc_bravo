@@ -21,8 +21,13 @@
 
 # First, the most specific values, i.e. the aspects that are specific to GSM
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay \
-						   vendor/aokp/overlay/bravo
+# get non-open-source GSM-specific aspects if available
+$(call inherit-product-if-exists, vendor/htc/bravo/bravo-vendor.mk)
+
+# Locales!
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
+DEVICE_PACKAGE_OVERLAYS += device/htc/bravo/overlay
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=240 \
@@ -57,9 +62,6 @@ PRODUCT_PROPERTY_OVERRIDES += ro.ril.enable.prl.recognition=1
 # Don't set /proc/sys/vm/dirty_ratio to 0 when USB mounting
 PRODUCT_PROPERTY_OVERRIDES += ro.vold.umsdirtyratio=20
 
-# Disable HWAccel for now
-PRODUCT_PROPERTY_OVERRIDES += ro.config.disable_hw_accel=true
-
 # Ril workaround
 PRODUCT_PROPERTY_OVERRIDES += ro.telephony.ril.v3=signalstrength
     #skipbrokendatacall,facilitylock,datacall,icccardstatus
@@ -69,6 +71,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage \
     persist.service.adb.enable=1
 
+# Permissions
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/base/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -83,14 +86,13 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
     frameworks/base/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml \
-	vendor/aokp/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 
 # media config xml file
 PRODUCT_COPY_FILES += \
-    device/htc/bravo/media_profiles.xml:system/etc/media_profiles.xml
+    device/htc/bravo/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml
 
 # Sensors
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES := \
     gps.bravo \
     lights.bravo \
     sensors.bravo \
@@ -99,69 +101,51 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.qsd8k \
-    audio_policy.qsd8k \
-    libaudioutils
+    audio_policy.qsd8k
 # GPU
 PRODUCT_PACKAGES += \
     gralloc.qsd8k \
-    hwcomposer.default \
-    hwcomposer.qsd8k \
-	copybit.qsd8k
+    hwcomposer.default
+#    hwcomposer.qsd8k \
+#    copybit.qsd8k \
 #    libgenlock \
 #    libmemalloc \
 #    liboverlay \
 #    libtilerenderer \
 #    libQcomUI
+
+# Disable HWAccel for now
+PRODUCT_PROPERTY_OVERRIDES += ro.config.disable_hw_accel=true
+
 # Omx
-PRODUCT_PACKAGES += \
-    libOmxCore \
-    libOmxVenc \
-    libOmxVdec \
-    libstagefrighthw
+# TODO reenable
+# PRODUCT_PACKAGES += libOmxCore libOmxVenc libOmxVdec libstagefrighthw
 
 # Camera
 PRODUCT_PACKAGES += Camera
 
-# Superuser
-PRODUCT_PACKAGES += Superuser
-
-# Trebuchet launcher
-PRODUCT_PACKAGES += Trebuchet
-
-# LWPs
-PRODUCT_PACKAGES += LiveWallpapers LiveWallpapersPicker VisualizationWallpapers PhaseBeam UnicornPorn
-
-PRODUCT_LOCALES := en
-
-# Passion uses high-density artwork where available
+# Bravo uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# we have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 PRODUCT_COPY_FILES += \
-    device/htc/bravo/init.bravo.rc:root/init.bravo.rc \
-    device/htc/bravo/init.bravo.usb.rc:root/init.bravo.usb.rc \
-    device/htc/bravo/ueventd.bravo.rc:root/ueventd.bravo.rc \
-    device/htc/bravo/bravo-keypad.kl:system/usr/keylayout/bravo-keypad.kl \
-    device/htc/bravo/bravo-keypad.kcm:system/usr/keychars/bravo-keypad.kcm \
-    device/htc/bravo/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
-    device/htc/bravo/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
-    device/htc/bravo/curcial-oj.idc:system/usr/idc/curcial-oj.idc \
-    device/htc/bravo/vold.fstab:system/etc/vold.fstab
+    device/htc/bravo/prebuilt/init/init.bravo.rc:root/init.bravo.rc \
+    device/htc/bravo/prebuilt/init/init.bravo.usb.rc:root/init.bravo.usb.rc \
+    device/htc/bravo/prebuilt/init/ueventd.bravo.rc:root/ueventd.bravo.rc \
+    device/htc/bravo/prebuilt/system/usr/keychars/bravo-keypad.kcm:system/usr/keychars/bravo-keypad.kcm \
+    device/htc/bravo/prebuilt/system/usr/keylayout/bravo-keypad.kl:system/usr/keylayout/bravo-keypad.kl \
+    device/htc/bravo/prebuilt/system/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
+    device/htc/bravo/prebuilt/system/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
+    device/htc/bravo/prebuilt/system/usr/idc/curcial-oj.idc:system/usr/idc/curcial-oj.idc \
+    device/htc/bravo/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
 
 # Prebuilt kernel / wifi module
 PRODUCT_COPY_FILES += \
-    device/htc/bravo/prebuilt/bcm4329.ko:system/lib/modules/bcm4329.ko \
+    device/htc/bravo/prebuilt/system/lib/modules/bcm4329.ko:system/lib/modules/bcm4329.ko \
     device/htc/bravo/prebuilt/kernel:kernel
 
-# Also get non-open-source GSM-specific aspects if available
-$(call inherit-product-if-exists, vendor/htc/bravo/bravo-vendor.mk)
-
-# Locales!
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
-# AOKP common
-$(call inherit-product, vendor/aokp/configs/common.mk) 
-$(call inherit-product, vendor/aokp/configs/gsm.mk)
+PRODUCT_NAME := full_bravo
+PRODUCT_BRAND := htc
+PRODUCT_DEVICE := bravo
+PRODUCT_MODEL := Desire
+PRODUCT_MANUFACTURER := HTC

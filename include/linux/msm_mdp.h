@@ -20,6 +20,9 @@
 #define MSMFB_GRP_DISP          _IOW(MSMFB_IOCTL_MAGIC, 1, unsigned int)
 #define MSMFB_BLIT              _IOW(MSMFB_IOCTL_MAGIC, 2, unsigned int)
 
+#define MDP_DEINTERLACE 0x80000000
+#define MDP_SHARPENING  0x40000000
+
 enum {
 	MDP_RGB_565,		/* RGB 565 planar */
 	MDP_XRGB_8888,		/* RGB 888 padded */
