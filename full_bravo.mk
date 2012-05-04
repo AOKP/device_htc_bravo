@@ -95,8 +95,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES := \
     gps.bravo \
     lights.bravo \
-    sensors.bravo \
-    camera.qsd8k
+    sensors.bravo
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -128,6 +127,7 @@ PRODUCT_PACKAGES += Camera
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
+# Prebuild blobs
 PRODUCT_COPY_FILES += \
     device/htc/bravo/prebuilt/init/init.bravo.rc:root/init.bravo.rc \
     device/htc/bravo/prebuilt/init/init.bravo.usb.rc:root/init.bravo.usb.rc \
@@ -137,7 +137,9 @@ PRODUCT_COPY_FILES += \
     device/htc/bravo/prebuilt/system/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
     device/htc/bravo/prebuilt/system/usr/idc/synaptics-rmi-touchscreen.idc:system/usr/idc/synaptics-rmi-touchscreen.idc \
     device/htc/bravo/prebuilt/system/usr/idc/curcial-oj.idc:system/usr/idc/curcial-oj.idc \
-    device/htc/bravo/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab
+    device/htc/bravo/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
+	device/htc/bravo/prebuilt/system/lib/hw/camera.qsd8k.so:system/lib/hw/camera.qsd8k.so
+
 
 # Prebuilt kernel / wifi module
 PRODUCT_COPY_FILES += \
